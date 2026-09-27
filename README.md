@@ -8,7 +8,7 @@ A lightweight TypeScript utility library that makes JavaScript/TypeScript code e
 
 ## Features
 
-- **Condition Class** – Create expressive, reusable validation conditions with clear pass/fail semantics
+- **Condition Class** – Create expressive, reusable validation conditions with clear pass/fail semantics and optional timestamps
 - **String Validators** – Chainable string checks (JSON validation, empty, length, numeric, case-sensitive, regex matching)
 - **Array Utilities** – Convert arrays to JSON strings, Sets, or unique arrays
 - **Type Safety** – Fully typed with TypeScript for IDE autocomplete and error prevention
@@ -42,13 +42,25 @@ const isEven = new Condition(
 if (isEven.passes()) {
   console.log('Condition passed!');
 } else {
-  // Logs: [@vedanshshetti/beautify-js]: Condition "Number is even" failed. Given Callback returned 0, expected output was 0
+  // Logs: [@vedanshshetti/beautify-js at 2026-09-27 12:00:00]: Condition "Number is even" failed. Given Callback returned 0, expected output was 0
 }
 
 // Check if condition fails
 if (isEven.fails()) {
   console.log('Condition failed!');
 }
+```
+
+**Disable timestamps in logs:**
+
+```typescript
+const condition = new Condition(
+  () => myValue,
+  expectedValue,
+  'My validation',
+  console.warn,
+  false  // logTimestamp: false disables timestamp in log messages
+);
 ```
 
 ### String Validation
@@ -118,13 +130,22 @@ new Condition<T>(
   cb: () => unknown,
   expectedOutput: T,
   label: string,
-  logger: (...args: any[]) => void = console.warn
+  logger: (...args: any[]) => void = console.warn,
+  logTimestamp: boolean = true
 )
 ```
 
+**Parameters:**
+
+- `cb` – Callback function that returns the value to validate
+- `expectedOutput` – Expected output to compare against
+- `label` – Human-readable label for the condition (used in log messages)
+- `logger` – Optional logging function (defaults to `console.warn`)
+- `logTimestamp` – When `true` (default), includes ISO timestamp in log messages
+
 #### Methods
 
-- `passes(): boolean` – Returns `true` if callback output matches expected output. Logs failure details if mismatch.
+- `passes(): boolean` – Returns `true` if callback output matches expected output. Logs failure details with timestamp if mismatch.
 - `fails(): boolean` – Returns `true` if callback output does NOT match expected output.
 
 ### `isString(str: string)`

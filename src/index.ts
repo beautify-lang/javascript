@@ -3,6 +3,7 @@ interface ConditionInterface<ExpectedOutputType> {
   readonly log: (...args: any[]) => void;
   readonly eo: ExpectedOutputType;
   readonly statement: () => unknown;
+  readonly lT: boolean;
 };
 
 export class Condition<ExpectedOutputType> implements ConditionInterface<ExpectedOutputType> {
@@ -10,17 +11,20 @@ export class Condition<ExpectedOutputType> implements ConditionInterface<Expecte
   readonly log: (...args: any[]) => void;
   readonly eo: ExpectedOutputType;
   readonly statement: () => unknown;
+  readonly lT: boolean;
 
   constructor(
     cb: () => unknown, 
     expectedOutput: ExpectedOutputType, 
     label: string, 
-    logger: (...args: any[]) => void = console.warn
+    logger: (...args: any[]) => void = console.warn,
+    logTimestamp: boolean = true
   ) {
     this.statement = cb;
     this.eo = expectedOutput;
     this.label = label;
     this.log = logger;
+    this.lT = logTimestamp;
   };
 
   fails(): boolean {
@@ -31,7 +35,7 @@ export class Condition<ExpectedOutputType> implements ConditionInterface<Expecte
     const out = this.statement();
     if (out !== this.eo) {
       this.log(
-        `[@vedanshshetti/beautify-js]: Condition "${this.label}" failed. Given Callback returned ${JSON.stringify(out)}, expected output was ${JSON.stringify(this.eo)}`
+        `[@vedanshshetti/beautify-js${this.lT ? ` at ${new Date().toISOString().split(".")[0]!.replace("T", " ")}` : ""}]: Condition "${this.label}" failed. Given Callback returned ${JSON.stringify(out)}, expected output was ${JSON.stringify(this.eo)}`
       );
       return false;
     };

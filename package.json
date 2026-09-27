@@ -1,6 +1,6 @@
 {
   "name": "@vedanshshetti/beautify-js",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Makes JavaScript easier to read.",
   "homepage": "https://github.com/vedanshshetti/beautify-js#readme",
   "bugs": {
@@ -16,9 +16,13 @@
   "type": "module",
   "readme": "README.md",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "prepublishOnly": "tsc",
+    "postpublish": "rimraf dist"
   },
   "dependencies": {
     "@types/node": "^26.6.3"
+  },
+  "devDependencies": {
+    "rimraf": "^6.1.3"
   }
 }
