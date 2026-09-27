@@ -1,6 +1,6 @@
 # @vedanshshetti/beautify-js
 
-[![License: Apache 2.0](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
+[![License: Apache 2.0](https://img.shields.io/badge/License-Apache%202.0-green.svg)](https://opensource.org/licenses/Apache-2.0)
 [![TypeScript](https://img.shields.io/badge/TypeScript-4.9+-blue.svg)](https://www.typescriptlang.org/)
 [![npm](https://img.shields.io/badge/npm-%40vedanshshetti%2Fbeautify--js-orange.svg)](https://www.npmjs.com/package/@vedanshshetti/beautify-js)
 
