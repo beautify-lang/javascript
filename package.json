@@ -1,0 +1,24 @@
+{
+  "name": "@vedanshshetti/beautify-js",
+  "version": "1.0.0",
+  "description": "Makes JavaScript easier to read.",
+  "homepage": "https://github.com/vedanshshetti/beautify-js#readme",
+  "bugs": {
+    "url": "https://github.com/vedanshshetti/beautify-js/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vedanshshetti/beautify-js.git"
+  },
+  "license": "Apache-2.0",
+  "author": "Vedansh Shetti <vedansh.shetti@gmail.com>",
+  "main": "dist/index.js",
+  "type": "module",
+  "readme": "README.md",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "@types/node": "^26.6.3"
+  }
+}
