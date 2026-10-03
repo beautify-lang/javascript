@@ -1,8 +1,8 @@
-# @vedanshshetti/beautify-js
+# @beautify-lang/javascript
 
 [![License: Apache 2.0](https://img.shields.io/badge/License-Apache%202.0-green.svg)](https://opensource.org/licenses/Apache-2.0)
 [![TypeScript](https://img.shields.io/badge/TypeScript-4.9+-blue.svg)](https://www.typescriptlang.org/)
-[![npm](https://img.shields.io/badge/npm-%40vedanshshetti%2Fbeautify--js-orange.svg)](https://www.npmjs.com/package/@vedanshshetti/beautify-js)
+[![npm](https://img.shields.io/badge/npm-%40vedanshshetti%2Fbeautify--js-orange.svg)](https://www.npmjs.com/package/@beautify-lang/js)
 
 A lightweight TypeScript utility library that makes JavaScript/TypeScript code easier to read and validate. Provides clean, type-safe helpers for condition checking, string validation, and array transformations.
 
@@ -17,11 +17,11 @@ A lightweight TypeScript utility library that makes JavaScript/TypeScript code e
 ## Installation
 
 ```bash
-npm install @vedanshshetti/beautify-js
+npm install @beautify-lang/js
 # or
-pnpm add @vedanshshetti/beautify-js
+pnpm add @beautify-lang/js
 # or
-yarn add @vedanshshetti/beautify-js
+yarn add @beautify-lang/js
 ```
 
 ## Usage
@@ -31,7 +31,7 @@ yarn add @vedanshshetti/beautify-js
 Create reusable conditions that validate expected outputs with clear logging:
 
 ```typescript
-import { Condition } from '@vedanshshetti/beautify-js';
+import { Condition } from '@beautify-lang/js';
 
 const isEven = new Condition(
   () => 42 % 2,
@@ -42,7 +42,7 @@ const isEven = new Condition(
 if (isEven.passes()) {
   console.log('Condition passed!');
 } else {
-  // Logs: [@vedanshshetti/beautify-js at 2026-09-27 12:00:00]: Condition "Number is even" failed. Given Callback returned 0, expected output was 0
+  // Logs: [@beautify-lang/js at 2026-09-27 12:00:00]: Condition "Number is even" failed. Given Callback returned 0, expected output was 0
 }
 
 // Check if condition fails
@@ -68,7 +68,7 @@ const condition = new Condition(
 Chainable string validators for common checks:
 
 ```typescript
-import { isString } from '@vedanshshetti/beautify-js';
+import { isString } from '@beautify-lang/js';
 
 const input = '{ "valid": true }';
 
@@ -91,7 +91,7 @@ isString(input).matches(/\d+/); // false
 Transform arrays with clean, declarative syntax:
 
 ```typescript
-import { convertArray } from '@vedanshshetti/beautify-js';
+import { convertArray } from '@beautify-lang/js';
 
 const numbers = [1, 2, 2, 3, 3, 3];
 
@@ -111,7 +111,7 @@ const unique = convertArray(numbers).toUniqueArray();
 ### Utility Functions
 
 ```typescript
-import { not } from '@vedanshshetti/beautify-js';
+import { not } from '@beautify-lang/js';
 
 const result = not(true); // false
 const truthy = not(false); // true

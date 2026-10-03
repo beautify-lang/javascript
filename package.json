@@ -1,14 +1,14 @@
 {
-  "name": "@vedanshshetti/beautify-js",
-  "version": "1.1.1",
-  "description": "Makes JavaScript easier to read.",
-  "homepage": "https://github.com/vedanshshetti/beautify-js#readme",
+  "name": "@beautify-lang/js",
+  "version": "2.0.0",
+  "description": "Makes JavaScript easier to read and offers various utilities.",
+  "homepage": "https://github.com/beautify-lang/javascript#readme",
   "bugs": {
-    "url": "https://github.com/vedanshshetti/beautify-js/issues"
+    "url": "https://github.com/beautify-lang/javascript/issues"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/vedanshshetti/beautify-js.git"
+    "url": "git+https://github.com/beautify-lang/javascript.git"
   },
   "license": "Apache-2.0",
   "author": "Vedansh Shetti <vedansh.shetti@gmail.com>",
@@ -17,12 +17,14 @@
   "readme": "README.md",
   "scripts": {
     "prepublishOnly": "tsc",
-    "postpublish": "rimraf dist"
-  },
-  "dependencies": {
-    "@types/node": "^26.6.3"
+    "postpublish": "rimraf dist",
+    "testBuild": "tsc && rimraf dist" 
   },
   "devDependencies": {
+    "@types/node": "^26.6.4",
     "rimraf": "^6.1.3"
+  },
+  "dependencies": {
+    "typescript": "^7.0.2"
   }
 }
